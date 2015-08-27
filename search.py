@@ -13,7 +13,8 @@ def search(path,ext):
     #    print x
         if os.path.isfile(os.path.join(path,x)):
             if os.path.splitext(os.path.join(path,x))[1] == ext:
-                print os.path.join(os.path.abspath(path),x)
+                # print os.path.join(os.path.abspath(path),x)
+                print os.path.join(path,x)
         if os.path.isdir(os.path.join(path,x)):
             #print os.path.abspath(x)
             #print os.path.join(path,x)
