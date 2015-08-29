@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
+"""
+进程a创建后共享父进程程序代码，如果后续继续创建子进程，那么a子进程同样会创建新的子进程
+"""
 __author__ = 'H.M.Yang'
 
 import os
