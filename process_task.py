@@ -42,3 +42,4 @@ def f_list_para_apply_async(num, pid=0, pool=None):
 
 r = f_list_para_apply_async(10, pid=1)
 
+
