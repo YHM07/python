@@ -23,6 +23,20 @@ thid_day = today.weekday()
 delta_to_target = (thid_day - target_day) % 7
 
 last_friday = today - datetime.timedelta(days=delta_to_target)
-
 print(last_friday.strftime('%A, %d-%b-%Y'))
+
+from datetime import datetime, timedelta, timezone
+import re
+
+def to_timestamp(dt_str, tz_str):
+    dt = datetime.strptime(dt_str, '%Y-%m-%d %H:%M:%S')
+    n  = int(re.match(r'UTC([+-]\d+):00', tz_str).group(1))
+    tz = timezone(timedelta(hours=n))
+    dt = dt.replace(tzinfo = tz)
+    return dt.timestamp()
+
+print(to_timestamp('2015-6-1 08:10:30', 'UTC+7:00'))
+print(to_timestamp('2015-5-31 16:10:30', 'UTC-09:00'))
+    
+
 
