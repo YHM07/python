@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>H.M.Yang's Blog</title>
+  <meta name="description" content="jekyll template demo.">
+  <meta name="keywords" content="">
+  <meta name="author" content="H.M.Yang">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/favicon.png">
+  <link rel="canonical" href="//yhm07.github.io/index.html">
+
+  <link rel="stylesheet" href="/assets/css/style.css" media="all">
+
+  <!-- atom & rss feed -->
+  <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="H.M.Yang's Blog RSS Feed">
+  <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="H.M.Yang's Blog ATOM Feed">
+
+  <!-- fav and touch icons  -->
+  <!-- Update these with your own images
+  <link rel="shortcut icon" href="images/favicon.ico">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+
+  <meta name="renderer" content="webkit|ie-stand">
+
+  <meta name="baidu-site-verification" content="BvD3CNBzK6" />
+  <meta name="msvalidate.01" content="FE0D1D87A075E1003B82C7446EE360ED" />
+</head>
+
+
+  <body>
+    <div class="container">
+      <!--[if lt IE 9]>
+<div class="alert alert-warning">
+  <p>Your Internet Explorer is not supported. Please upgrade your Internet Explorer to version 9+, or use latest <a href="http://www.google.com/chrome/" target="_blank" class="alert-link">Google chrome</a>、<a href="http://www.mozilla.org/firefox/" target="_blank" class="alert-link">Mozilla Firefox</a>.</p>
+  <p>If you are using IE 9 or later, make sure you <a href="http://windows.microsoft.com/en-us/internet-explorer/use-compatibility-view#ie=ie-8" target="_blank" class="alert-link">turn off "Compatibility view"</a>.</p>
+</div>
+<![endif]-->
+<header class="header">
+  <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+  <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <div class="title"><a title="H.M.Yang's Blog" href="/">H.M.Yang's Blog</a></div>
+  <ul class="nav navbar-nav collapse navbar-collapse bs-navbar-collapse navbar-right">
+    <li>
+    <form id="search-form" class="form-group has-success visible-lg" role="form">
+      <input type="text" class="form-control input-sm" placeholder="Search" id="query">
+    </form>
+    </li>
+    <li><a href="/archive.html" title="Archive"><span class='fa fa-archive fa-2x'></span></a></li>
+    <li><a href="/categories.html" title="Categories" rel="nofollow"><span class='fa fa-navicon fa-2x'></span></a></li>
+    <li><a href="/tags.html" title="Tags" rel="nofollow"><span class='fa fa-tags fa-2x'></span></a></li>
+    <li><a href="/about.html" title="About"><span class='fa fa-user fa-2x'></span></a></li>
+    
+    <li><a href="https://github.com/YHM07" target="_blank" title="Github" rel="nofollow"><span class='fa fa-github fa-2x'></span></a></li>
+    
+    
+    
+    
+    
+    <li><a href="http://weibo.com/YHM07" target="_blank" title="Weibo" rel="nofollow"><span class="fa fa-weibo fa-2x"></span></a></li>
+    
+
+    <li><a href="/rss.xml" target="_blank" title="RSS" rel="nofollow"><span class='fa fa-rss fa-2x'></span></a></li>
+  </ul>
+</header>
+
+
+      <article class="wrapper">
+        <div id="search-loader" class="img-wrap">
+          <div class="loading">
+            <img src="/assets/img/loading.png">
+          </div>
+        </div>
+        <div class="row clearfix">
+          <div class="col-md-9">
+  
+  <h3 class="title"><a href="/python/2015-09/pip-install.html">编译安装python3.4过程当中的一些问题</a></h3>
+  
+  <h2>安装环境：</h2>
+
+<hr>
+
+<ul>
+<li><p><strong>CentOS Linux release 7.1.1503 (Core)</strong></p></li>
+<li><p><strong>python版本2.7.5</strong></p></li>
+</ul>
+
+<h2>Install pip</h2>
+
+<hr>
+
+<p>参考安装说明<a href="https://pip.pypa.io/en/stable/installing/">Install pip</a>安装pip。</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">wget https://bootstrap.pypa.io/get-pip.py 
+
+python get-pip.py 
+</code></pre></div>
+<h2>TroubleShooting</h2>
+
+<hr>
+
+<p>在安装完成pip之后，在使用pip安装一些软件包的时候发现存在一些意想不到的问题，大多都是因为依赖的原因，列举如下。</p>
+
+<h3>InsecurePlatformWaring问题</h3>
+
+<p>利用pip安装一些python工具的时候，比如安装<strong>ipython</strong>会出现这样的问题：</p>
+
+<blockquote>
+<p>/home/centos/.virtualenvs/py2env/lib/python2.7/site-packages/pip/_vendor/requests/packages/urllib3/util/ssl_.py:90: InsecurePlatformWarning: A true SSLContext object is not available. This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail. For more information, see https://urllib3.readthedocs.org/en/latest/security.html#insecureplatformwarning.</p>
+</blockquote>
+
+<p>解决方案：</p>
+
+
+  
+  
+  <h3 class="title"><a href="/mysql/2015-09/mysql-tables.html">MySQL学习笔记-数据表基本操作</a></h3>
+  
+  <h1>操作数据表学习笔记</h1>
+
+<hr>
+
+<p><strong>MySQL默认用户<em>root</em>, 默认端口号<em>3306</em></strong></p>
+
+<h3>查看数据表</h3>
+<div class="highlight"><pre><code class="language-text" data-lang="text">SHOW COLUMNS [FROM tbl_name]
+</code></pre></div>
+<h3>插入记录</h3>
+<div class="highlight"><pre><code class="language-text" data-lang="text">INSERT [INTO] tbl_name [(col_name,...)] VALUES(val, ...)
+</code></pre></div>
+
+  
+  
+  <h3 class="title"><a href="/mysql/2015-09/mysql-datatype.html">MySQL学习笔记-数据类型</a></h3>
+  
+  <h1>操作数据库学习笔记</h1>
+
+<hr>
+
+<p><strong>MySQL默认用户<em>root</em>, 默认端口号<em>3306</em></strong></p>
+
+<h2>MySQL 数据类型</h2>
+
+<hr>
+
+<h3>整型(分有符号整型和无符号整型)</h3>
+
+<hr>
+<div class="highlight"><pre><code class="language-text" data-lang="text">TINYINT             (一个字节)
+
+SMALLINT            (两个字节)
+
+MEDIUMINT           (三个字节)
+
+INT                 (四个字节)
+
+BIGINT              (八个字节)
+</code></pre></div>
+
+  
+  
+  <h3 class="title"><a href="/mysql/2015-09/mysql.html">MySQL学习笔记-数据库/表基本操作</a></h3>
+  
+  <h1>操作数据库学习笔记</h1>
+
+<hr>
+
+<p><strong>MySQL默认用户<em>root</em>, 默认端口号<em>3306</em></strong></p>
+
+<h2>创建数据库</h2>
+<div class="highlight"><pre><code class="language-text" data-lang="text">CREATE {DATABASE | SCHEMA} [IF NOT EXISTS] db_name [DEFAULT] CHARACTER SET character_set;
+</code></pre></div>
+<h2>删除数据库</h2>
+<div class="highlight"><pre><code class="language-text" data-lang="text">DROP {DATABASE | SCHEMA} [IF EXISTS] db_name;
+</code></pre></div>
+<h2>修改数据库</h2>
+<div class="highlight"><pre><code class="language-text" data-lang="text">ALTER {DATABASE | SCHEMA} db_name [DEFAULT] CHARACTER SET character_set;
+</code></pre></div>
+<h2>查看数据库</h2>
+<div class="highlight"><pre><code class="language-text" data-lang="text">SHOW DATABASES;
+</code></pre></div>
+
+  
+  
+  <h3 class="title"><a href="/python/2015-08/python-virtualenv.html">创建Python虚拟环境---Virtualenv</a></h3>
+  
+  <h1>Virtualenv</h1>
+
+<hr>
+
+<p><strong><a href="https://virtualenv.pypa.io/en/latest/">Virtualenv</a></strong>用于创建独立的Python环境，多个Python相互独立，互不影响，它能够：</p>
+
+<blockquote>
+<p>在没有权限的情况下安装新套件;</p>
+
+<p>不同应用可以使用不同的套件版本;</p>
+
+<p>套件升级不影响其他应用</p>
+</blockquote>
+
+<p><strong>注：以下操作均在Ubuntu 14.04.3 LTS 下完成</strong></p>
+
+<p>参考：<a href="http://lesliezhu.github.io/public/2014-11-11-virtualenv.html">创建虚拟Python环境----virtualenv</a></p>
+
+
+  
+  
+
+  <!-- Pagination links -->
+  <div class="pull-right">
+    
+    <span><a class="btn btn-primary btn-sm disabled" href="/">Home</a></span>
+    <span><a class="btn btn-primary btn-sm disabled">&laquo; Prev</a></span>
+    
+    <span><a class="btn btn-primary btn-sm disabled">Page: 1 of 5</a></span>
+    
+    <a class="btn btn-primary btn-sm" href="/page2/">Next &raquo;</a>
+    <a class="btn btn-primary btn-sm" href="/page5/">Last</a>
+    
+  </div>
+</div>
+<aside class="col-md-3 visible-lg visible-md">
+  
+
+
+<section>
+  <h3 class="title">Categories</h3>
+  <ul>
+    
+    
+    <li><a href="/categories.html#linux" rel="nofollow">linux</a></li>
+    
+    
+    <li><a href="/categories.html#mysql" rel="nofollow">mysql</a></li>
+    
+    
+    <li><a href="/categories.html#python" rel="nofollow">python</a></li>
+    
+    
+    <li><a href="/categories.html#wiki" rel="nofollow">wiki</a></li>
+    
+  </ul>
+</section>
+
+  <section>
+  <h3 class="title">Recently Posts</h3>
+  <ul>
+    
+    <li><a href="/python/2015-09/pip-install.html" title="编译安装python3.4过程当中的一些问题">编译安装python3.4过程当中的一些问题</a></li>
+    
+    <li><a href="/mysql/2015-09/mysql-tables.html" title="MySQL学习笔记-数据表基本操作">MySQL学习笔记-数据表基本操作</a></li>
+    
+    <li><a href="/mysql/2015-09/mysql-datatype.html" title="MySQL学习笔记-数据类型">MySQL学习笔记-数据类型</a></li>
+    
+    <li><a href="/mysql/2015-09/mysql.html" title="MySQL学习笔记-数据库/表基本操作">MySQL学习笔记-数据库/表基本操作</a></li>
+    
+    <li><a href="/python/2015-08/python-virtualenv.html" title="创建Python虚拟环境---Virtualenv">创建Python虚拟环境---Virtualenv</a></li>
+    
+    <li><a href="/wiki/2015-08/install-jekyll.html" title="Install Jekyll">Install Jekyll</a></li>
+    
+    <li><a href="/wiki/2015-08/a-git-branching-model.html" title="A Git branching model">A Git branching model</a></li>
+    
+    <li><a href="/linux/2015-08/bash-shortcuts.html" title="Bash shortcuts">Bash shortcuts</a></li>
+    
+    <li><a href="/linux/2015-08/tcpdump-summary.html" title="tcpdump summary">tcpdump summary</a></li>
+    
+    <li><a href="/linux/2015-08/using-cli.html" title="熟练使用linux命令行常用快捷键">熟练使用linux命令行常用快捷键</a></li>
+    
+  </ul>
+</section>
+
+  
+<section>
+  <h3 class="title">Recently Comments</h3>
+  <ul class="ds-recent-comments" data-num-items="10" data-show-avatars="0" data-show-time="0" data-show-title="0" data-show-admin="0" data-excerpt-length="26"></ul>
+</section>
+
+
+  
+<section>
+<h3 class="title">Blogroll</h3>
+<ul>
+  
+  <li><a href="//havee.me" title="Havee's Space">Havee's Space</a></li>
+  
+  <li><a href="//jekyllrb.com" title="Jekyll">Jekyll</a></li>
+  
+</ul>
+</section>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <footer class="footer text-center">
+  <p>&copy; 2015 <a href="//yhm07.github.io" title="jekyll template demo.">H.M.Yang</a>. with Help from <a href="//jekyllrb.com/" title="Transform your plain text into static websites and blogs.">Jekyll</a> and <a href="//getbootstrap.com/" title="Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile first projects on the web.">Bootstrap</a></p>
+  <p>Articles are licensed under <a href="//creativecommons.org/licenses/by/3.0/" title="CC BY 3.0 License">the CC BY 3.0</a></p>
+</footer>
+
+    </div>
+
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/webcore.js"></script>
+    <script src="/assets/js/jquery.qrcode.min.js"></script>
+
+    <script type="text/javascript">
+      $("#code").qrcode({
+        width: 150,
+        height: 150,
+        text: "http://yhm07.github.io/index.html"
+      });
+    </script>
+
+    
+
+    
+    <!-- duoshuo Begin -->
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"YHM07"};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = 'http://static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] ||
+        document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+    </script>
+    <!-- duoshuo End -->
+    
+  </body>
+</html>
