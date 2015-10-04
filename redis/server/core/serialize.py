@@ -30,14 +30,16 @@ def fetch_all_config(host_groups):
     host_config_dict = {}
     for group in host_groups:
         for h in group.hosts:
-            print("\t {0} : {1}".format(h ,group.services))
+            print("\t {0} : {1}".format(h, group.services))
             if h not in host_config_dict:
                 host_config_dict[h] = {}
             for s in group.services:
                 host_config_dict[h][s.name] = s                       
     for h, v in host_config_dict.items():
         host_config_key = 'HostConfig::%s' %h
+        print("\033[31;1mHost [{0}] Service [{1}]\033[0m".format(h, v))
 #        main_ins.r.set(host_config_key, json.dumps(v))
+    return host_config_dict 
 
 def data_process(main_ins):
     print("----going to handle monitor data ------")
@@ -50,7 +52,7 @@ def data_process(main_ins):
                     service_name)
             s_data = main_ins.r.get(service_redis_key)
             if s_data:
-#                s_data = json.loads(s_dat)
+                s_data = json.loads(s_data)
 #                print("### > {0}".format(s_data))
 
                 timestamp = s_data['timestamp']
@@ -65,12 +67,13 @@ def data_process(main_ins):
                     expired_time = time.time() - timestamp - s_instance.interval
                     print("\033[31;1mHost [{1}] service [{0}] data expired {2} secs\033[0m".format(ip, service_name, expired_time))
 
-
             else:
                 print("\033[31;1mNo data found in redis for service [{0}] host [{1}]\033[0m".format(service_name, ip))
     
 def service_item_handle(main_ins, item_key, val_dic, client_service_data):
+    print("\033[31;1m-----------------Service-item-handle--------------\033[0m")
     print(item_key, client_service_data['data'][item_key])
+    
     item_data = client_service_data['data'][item_key]
     warning_val = val_dic['warning']
     critical_val = val_dic['critical']

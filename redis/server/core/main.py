@@ -17,7 +17,9 @@ class MonitorServer(object):
 #        print(self.r.get('name'))
 
     def start(self):
-        self.handle()
+        while True:
+            self.handle()
+            self.data_handle()
 
     def save_config(self):
         serialize.push_all_configs_into_redis(
@@ -26,17 +28,19 @@ class MonitorServer(object):
 
     def handle(self):
         chan_sub = self.r.subscribe()
-        while True:
+#        while True:
+        print('-------- going to parse_response .......\n')
 #            print(chan_sub.parse_response())
-            host_service_data = chan_sub.parse_response()
-            host_service_data = json.loads(host_service_data[2])
+        host_service_data = chan_sub.parse_response()
+        host_service_data = json.loads(host_service_data[2])
 
-            host_service_data['timestamp'] = time.time()
+        host_service_data['timestamp'] = time.time()
 
-            service_data_key = 'ServiceData::%s::%s' %(
-                    host_service_data['host'],
-                    host_service_data['service'])
-            self.r.set(service_data_key, json.dumps(host_service_data))
+        service_data_key = 'ServiceData::%s::%s' %(
+                host_service_data['host'],
+                host_service_data['service'])
+        self.r.set(service_data_key, json.dumps(host_service_data))
+
 
     def data_handle_run(self):
         serialize.data_process(self)

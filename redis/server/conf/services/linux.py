@@ -41,7 +41,8 @@ class Memory(BaseService):
         self.name = 'linux_memory'
         self.plugin_name = 'get_memory_status'
         self.triggers = {
-                'usage': {
+#                'usage': {
+                'MemUsage': {
                     'func'     : 'avg',
                     'last'     : 5*60,
                     'count'    : 1,

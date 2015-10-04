@@ -4,7 +4,7 @@
 __author__ = 'H.M.Yang'
 
 RedisServer = '0.0.0.0'
-RedisPort    = 6379
+RedisPort   = 6379
 RedisSubChannel = 'fm87.7'
 RedisPubChannel = 'fm104'
 

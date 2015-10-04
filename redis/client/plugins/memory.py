@@ -9,10 +9,10 @@ import commands
 def monitor(invoke=1):
     monitor_dic = {
             'SwapUsage': 'percentage',
-            'MemUsage': 'percentage',
+            'MemUsage' : 'percentage',
             }
 
-    shell_command = "grep 'MemTotal\|MemFree\|Buffers\|^Cached\|SwapTotal\|SwapFree\|' /proc/meminfo"
+    shell_command = "grep 'MemTotal\|MemFree\|Buffers\|^Cached\|SwapTotal\|SwapFree' /proc/meminfo"
 
     status, result = commands.getstatusoutput(shell_command)
 
